@@ -1,3 +1,5 @@
+'use client';
+
 import { memo } from 'react';
 import dayjs from 'dayjs';
 // import EventList from './EventList';
@@ -5,13 +7,19 @@ import dayjs from 'dayjs';
 import { MarathonBadge } from './MarathonBadge';
 import { FaRegCalendarAlt, FaWonSign } from 'react-icons/fa';
 import { IoLocationSharp } from 'react-icons/io5';
+import { Marathon } from '@/model/marathon';
 
 
 const MemoizedFaRegCalendarAlt = memo(FaRegCalendarAlt);
 const MemoizedIoLocationSharp = memo(IoLocationSharp);
 const MemoizedFaWonSign = memo(FaWonSign);
 
-function MarathonCard({ marathon }: { marathon }) {
+type Props = {
+  marathon: Marathon;
+  priority: boolean;
+};
+
+function MarathonListCard({ marathon, priority }: Props) {
   return (
     <div className='bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 cursor-pointer relative' onClick={() => window.open(marathon.url)}>
       <img src={marathon.image?.replace('http://','https://') || 'images/default-event.png'} alt={`${marathon.name} 이미지`} className="hidden sm:block w-full aspect-[16/9] object-fill rounded-t-lg" />
@@ -41,4 +49,4 @@ function MarathonCard({ marathon }: { marathon }) {
   );
 }
 
-export default memo(MarathonCard);
+export default memo(MarathonListCard);

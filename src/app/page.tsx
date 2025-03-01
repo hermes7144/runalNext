@@ -1,6 +1,11 @@
+import MarathonList from '@/components/MarathonList';
+
 export default function Home() {
   return (
-  <main>
-    Runnoti</main>
+
+    <section className='w-full flex p-4'>
+    <MarathonList />
+</section>
+
   )
 }
