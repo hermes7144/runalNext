@@ -1,6 +1,9 @@
 import { memo } from 'react';
 
 function EventList({ events, maxVisibleCount = 4 }) {
+  console.log(events);
+  
+
   const visibleEvents = events.slice(0, maxVisibleCount);
   const hiddenEvents = events.length > maxVisibleCount ? events.slice(maxVisibleCount) : [];
 

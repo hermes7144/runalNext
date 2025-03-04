@@ -11,7 +11,7 @@ export default function MarathonList() {
     {loading && <div className='text-center mt-32'><GridSpninner /></div>}
     {marathons &&
     <ul>
-    {marathons.map((marathon, index) => <li key={marathon.id} className='mb-4'><MarathonListCard marathon={marathon} priority={index < 2}/></li>)}
+    {marathons.map((marathon, index) => <li key={marathon._id} className='mb-4'><MarathonListCard marathon={marathon} priority={index < 2}/></li>)}
   </ul>
   }
   </section>;
