@@ -11,6 +11,7 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import Avatar from './Avatar';
 import SearchIcon from './ui/icons/SearchIcon';
 import SearchFillIcon from './ui/icons/SearchFillIcon';
+import UserMenu from './UserMenu';
 
 const menu = [
   { href: '/', icon: <HomeIcon />, clickedIcon: <HomeFillIcon /> },
@@ -35,21 +36,17 @@ export default function Navbar() {
             {pathName === item.href ? item.clickedIcon : item.icon}
           </Link>
         </li>))}
-        {user && (
+        {user && 
           <li>
-            <Link href={`/user/${user.username}`}>
-              <Avatar image={user.image} />
-            </Link>
+            <UserMenu />
           </li>
-        )}
-        {session ? (
-          <ColorButton text='Sign out' onClick={() => signOut()}/>
-        ):(
-          <ColorButton text='Sign in' onClick={() => signIn()}/>
-        )}
+        }
+        {!user && <ColorButton text='Sign in' onClick={() => signIn()}/> }
       </ul>
     </nav>
   </div>
 }
+
+
 
 

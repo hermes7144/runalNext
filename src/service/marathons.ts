@@ -1,5 +1,5 @@
 import { Marathon } from '@/model/marathon';
-import { client, urlFor, assetsURL } from './sanity';
+import { client, urlFor } from './sanity';
 
 export async function getMarathons() {
   return client

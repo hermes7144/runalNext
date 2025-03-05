@@ -5,14 +5,14 @@ import { NextResponse } from 'next/server';
 
 
 export async function GET() {
-  const session = await getServerSession(authOptions);
-  const user = session?.user;
+  // const session = await getServerSession(authOptions);
+  // const user = session?.user;
   
-  if (!user) {
-    return new Response('Authentication Error', { status: 401})
-  }
+  // if (!user) {
+  //   return new Response('Authentication Error', { status: 401})
+  // }
 
-  const username = user.email?.split('@')[0];
+  // const username = user.email?.split('@')[0];
 
   return getMarathons().then((data) => 
     NextResponse.json(data)
